@@ -51,40 +51,41 @@ def look_up(mat):
             if(mat[i][j]==0):
                 return (i,j)
             
-def move_all(sol, nodo, loop):
+def move_all(sol, nodo, loop, visited):
     mat = move_up(nodo.get_datos())
     if(mat):
-        hijo = NodoArbol(mat)
-        hijo.set_coste(find_cost(sol,hijo.get_datos())+loop)
-        nodo.set_hijo(hijo)
+        if(not mat in visited):
+            add_visit_hijo(nodo, mat, sol, loop, visited)
     mat = move_down(nodo.get_datos())
     if(mat):
-        hijo = NodoArbol(mat)
-        hijo.set_coste(find_cost(sol,hijo.get_datos())+loop)
-        nodo.set_hijo(hijo)
+        if(not (mat in visited)):
+            add_visit_hijo(nodo, mat, sol, loop, visited)
     mat = move_left(nodo.get_datos())
     if(mat):
-        hijo = NodoArbol(mat)
-        hijo.set_coste(find_cost(sol,hijo.get_datos())+loop)
-        nodo.set_hijo(hijo)
+        if(not (mat in visited)):
+            add_visit_hijo(nodo, mat, sol, loop, visited)
     mat = move_right(nodo.get_datos())
     if(mat):
-        hijo = NodoArbol(mat)
-        hijo.set_coste(find_cost(sol,hijo.get_datos())+loop)
-        nodo.set_hijo(hijo)
+        if(not (mat in visited)):
+            add_visit_hijo(nodo, mat, sol, loop, visited)
         
 def find_cost(sol,estado):
     cont = 0
     for i in range(len(sol)):
         for j in range(len(sol[i])):
-            if(sol[i][j] is not estado[i][j]):
+            if(not(sol[i][j] == estado[i][j])):
                 cont+=1
     return cont
             
 def show(aux, aux2):
     print('Mover: (' + str(aux) + ', ' + str(aux2) + ') → (' + str(aux2) + ', ' + str(aux) + ')')
 
-
+def add_visit_hijo(nodo, mat, sol, loop, visited):
+        visited.append(mat)
+        hijo = NodoArbol(mat)
+        hijo.set_coste(find_cost(sol, hijo.get_datos()) + loop)
+        nodo.set_hijo(hijo)
+    
 
 
 
