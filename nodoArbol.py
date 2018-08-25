@@ -5,11 +5,11 @@ class NodoArbol(object):
         if(hijo):
             self.hijo.append(hijo)
         self.padre = None
-        self.coste = None
+        self.coste = 0
+        self.step = 1
     
     def set_hijo(self, hijo):
         self.hijo.append(hijo)
-        hijo.set_padre(self)
     
     def get_hijo(self):
         return self.hijo
@@ -32,6 +32,12 @@ class NodoArbol(object):
     def get_coste(self):
         return self.coste
     
+    def set_step(self, step):
+        self.step = step
+        
+    def get_step(self):
+        return self.step
+        
     def igual(self, nodo):
         if self.get_datos() == nodo.get_datos():
             return True
