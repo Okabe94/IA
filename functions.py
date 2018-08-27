@@ -114,16 +114,20 @@ def in_queue(nodo, queue):
     else:
         return False
 
-def fill_matrix(mat):
-    for i in range(len(mat)):
+def fill_matrix(m,n):
+    mat = []
+    for i in range(m):
+        row = []
         print('Values for row number: ' + str(i+1))
-        for j in range(len(mat[i])):
+        for j in range(n):
             value = input('Input value for cell [' + str(i+1) + '][' + str(j+1) + '] → ')
             if(value in ''):
                 print('Oops!, slight mistake, let\'s do that again please')
-                mat[i][j] = int(input('Input value for cell [' + str(i+1) + '][' + str(j+1) + '] → '))
+                row.append(int(input('Input value for cell [' + str(i+1) + '][' + str(j+1) + '] → ')))
             else:
-                mat[i][j] = int(value)
+                row.append(int(value))
+        mat.append(row)
+    return mat
           
 
 

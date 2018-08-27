@@ -5,13 +5,11 @@ from functools import cmp_to_key
 print('Eight piece puzzle solver')
 n = int(input('Input the number of row in the matrix → '))
 m = int(input('Great, now input the number of columns for each row → '))
-initial_state = [[0]*n]*m
-solution = [[0]*n]*m
 
 print('Now!, let\'s fill both matrix with data.\nFirst, our starting configuration: ')
-ft.fill_matrix(initial_state)
+initial_state = ft.fill_matrix(m,n)
 print('\nAnd the expected result will be: ')
-ft.fill_matrix(solution)
+solution = ft.fill_matrix(m,n)
 print('\nHere\'s how we ended up looking: ')
 print('Initial state:\n',initial_state)
 print('Solution:\n',solution)
