@@ -7,6 +7,7 @@ class NodoArbol(object):
         self.father = None
         self.cost = 0
         self.step = 1
+        self.move = None
     
     def set_son(self, son):
         self.son.append(son)
@@ -37,19 +38,9 @@ class NodoArbol(object):
         
     def get_step(self):
         return self.step
-        
-    def igual(self, nodo):
-        if self.get_data() == nodo.get_data():
-            return True
-        else:
-            return False
+
+    def set_move(self, move):
+        self.move = move
     
-    def en_lista(self, lista_nodos):
-        en_la_lista = False
-        for n in lista_nodos:
-            if self.igual(n):
-                en_la_lista = True
-        return en_la_lista
-    
-    def __str__(self):
-        return str(self.get_data())
+    def get_move(self):
+        return self.move
