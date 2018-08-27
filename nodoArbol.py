@@ -1,36 +1,36 @@
 class NodoArbol(object):
-    def __init__(self, datos, hijo=None):
-        self.datos = datos
-        self.hijo = []
-        if(hijo):
-            self.hijo.append(hijo)
-        self.padre = None
-        self.coste = 0
+    def __init__(self, data, son=None):
+        self.data = data
+        self.son = []
+        if(son):
+            self.son.append(son)
+        self.father = None
+        self.cost = 0
         self.step = 1
     
-    def set_hijo(self, hijo):
-        self.hijo.append(hijo)
+    def set_son(self, son):
+        self.son.append(son)
     
-    def get_hijo(self):
-        return self.hijo
+    def get_son(self):
+        return self.son
     
-    def get_padre(self):
-        return self.padre
+    def get_father(self):
+        return self.father
     
-    def set_padre(self, padre):
-        self.padre = padre
+    def set_father(self, father):
+        self.father = father
     
-    def set_datos(self, datos):
-        self.datos = datos
+    def set_data(self, data):
+        self.data = data
     
-    def get_datos(self):
-        return self.datos
+    def get_data(self):
+        return self.data
     
-    def set_coste(self, coste):
-        self.coste = coste
+    def set_cost(self, cost):
+        self.cost = cost
     
-    def get_coste(self):
-        return self.coste
+    def get_cost(self):
+        return self.cost
     
     def set_step(self, step):
         self.step = step
@@ -39,7 +39,7 @@ class NodoArbol(object):
         return self.step
         
     def igual(self, nodo):
-        if self.get_datos() == nodo.get_datos():
+        if self.get_data() == nodo.get_data():
             return True
         else:
             return False
@@ -52,4 +52,4 @@ class NodoArbol(object):
         return en_la_lista
     
     def __str__(self):
-        return str(self.get_datos())
+        return str(self.get_data())

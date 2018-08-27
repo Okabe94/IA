@@ -52,19 +52,19 @@ def look_up(mat):
                 return (i,j)
             
 def move_all(sol, nodo):
-    mat = move_up(nodo.get_datos())
+    mat = move_up(nodo.get_data())
     if(mat):
         append_son(nodo, mat, sol)
         
-    mat = move_down(nodo.get_datos())
+    mat = move_down(nodo.get_data())
     if(mat):
         append_son(nodo, mat, sol)
             
-    mat = move_left(nodo.get_datos())
+    mat = move_left(nodo.get_data())
     if(mat):
         append_son(nodo, mat, sol)
             
-    mat = move_right(nodo.get_datos())
+    mat = move_right(nodo.get_data())
     if(mat):
         append_son(nodo, mat, sol)
         
@@ -78,11 +78,11 @@ def find_cost(sol, estado):
     return cont
             
 def append_son(nodo, mat, sol):
-        hijo = NodoArbol(mat)
-        hijo.set_padre(nodo)
-        hijo.set_step(nodo.get_step()+1)
-        hijo.set_coste(find_cost(sol, hijo.get_datos()) + hijo.get_step())
-        nodo.set_hijo(hijo)
+        son = NodoArbol(mat)
+        son.set_father(nodo)
+        son.set_step(nodo.get_step()+1)
+        son.set_cost(find_cost(sol, son.get_data()) + son.get_step())
+        nodo.set_son(son)
 
     
 def move_instruction(aux, aux2):
